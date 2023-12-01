@@ -1,15 +1,8 @@
 const sketchPad = document.querySelector('.sketch-container');
+const boxes = document.querySelectorAll('.grid');
+const gridSquare = document.getElementsByClassName("box");
 
-function addBoxes(){
-    
-    box.textContent = 'box';
-    grid.classList.add('grid');
-   
-
-
-    grid.appendChild(box);
-    sketchPad.appendChild(grid);
-}
+let changeGridColor = (e) => e.target.classList.add('toBlack');
 
 function addGrid(num){
     for (let row = 0; row < num; row++){
@@ -19,11 +12,10 @@ function addGrid(num){
         for (let col = 0; col < num; col++){
             const box = document.createElement('div');
             box.classList.add('box');
+            box.addEventListener('mouseover', changeGridColor)
             grid.appendChild(box);
-        }
-        
-    }
-    
+        }   
+    }   
 }
 
-addGrid(4);
+addGrid(64);

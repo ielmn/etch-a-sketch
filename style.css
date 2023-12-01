@@ -37,6 +37,10 @@ body {
     background: #ffffff;
 }
 
-.grid > *:hover {
+.toBlack {
+    background-color: black;
+  }
+
+/* .grid > *:hover {
     background:black;
-}
+} */
