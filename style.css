@@ -27,13 +27,11 @@ body {
 .grid {
     flex-basis: 100%;
     display: flex;
-    /* flex-wrap: wrap; */
-    /* flex-direction: column; */
 }
 
 .grid > * {
     flex-basis: 100%;
-    border: 2px solid black;
+    border: 0.1px solid black;
     background: #ffffff;
 }
 
@@ -41,6 +39,3 @@ body {
     background-color: black;
   }
 
-/* .grid > *:hover {
-    background:black;
-} */

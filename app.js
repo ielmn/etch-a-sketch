@@ -1,8 +1,11 @@
 const sketchPad = document.querySelector('.sketch-container');
-const boxes = document.querySelectorAll('.grid');
-const gridSquare = document.getElementsByClassName("box");
+// const boxes = document.querySelectorAll('.grid');
+const gridSquare = document.querySelector('.box');
+const askBtn = document.querySelector('#ask-numbers');
+const clear =  document.querySelector('#clear');
 
 let changeGridColor = (e) => e.target.classList.add('toBlack');
+let gridAmount = 6;
 
 function addGrid(num){
     for (let row = 0; row < num; row++){
@@ -18,4 +21,25 @@ function addGrid(num){
     }   
 }
 
-addGrid(64);
+function checkAmount(amount){
+    return (amount > 64 || amount < 1);
+}
+
+addGrid(gridAmount);
+
+// Event Listeners
+askBtn.addEventListener('click', () => {
+    let amount = 0;
+    while (checkAmount(amount)){
+        let ask = prompt('Enter grid amount', '6');
+        amount = parseInt(ask);
+    }
+    sketchPad.textContent = "";
+    gridAmount = amount;
+    addGrid(amount);
+});
+
+clear.addEventListener('click', () => {
+    sketchPad.textContent = "";
+    addGrid(gridAmount);
+});
