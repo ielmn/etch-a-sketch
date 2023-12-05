@@ -8,14 +8,23 @@
     <title>Etch-a-Sketch</title>
 </head>
 <body>
-    <div class="container" id="title">
+    <div class="menu">
         <h1>Etch-a-Sketch</h1>
+        <div class="colors">
+            <button class="buttons" id="black" title="Black" style="background-color: black;"></button>
+            <button class="buttons" id="red" title="Red" style="background-color: red;"></button>
+            <button class="buttons" id="green" title="Green" style="background-color: green;"></button>
+            <button class="buttons" id="blue" title="Blue" style="background-color: blue;"></button>
+        </div>
+        <div class="tools">
+            <button class="buttons" id="clear">Clear</button>
+            <button class="buttons" id="erase">Erase</button>
+            <button class="buttons" id="ask-numbers">Set Grid</button>
+        </div>
+    </div>
+    <div class="container" id="title">
         <div class="sketch-container">
         </div>
-        <button class="buttons" id="ask-numbers">Set Grid</button>
-        <button class="buttons" id="clear">Clear</button>
-        <button class="buttons" id="erase">Erase</button>
-        <button class="buttons" id="black">black</button>
     </div>
 </body>
 </html>
