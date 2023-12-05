@@ -2,8 +2,7 @@ const sketchPad = document.querySelector('.sketch-container');
 const gridSquare = document.querySelector('.box');
 const askBtn = document.querySelector('#ask-numbers');
 const clear =  document.querySelector('#clear');
-const eraseBtn = document.querySelector('#erase');
-const blackBtn = document.querySelector('#black');
+const colorsBtn = document.querySelectorAll('.colorsBtn');
 
 let gridAmount = 6;
 let currentState;
@@ -16,6 +15,15 @@ function changeState(state) {
         case 'black':
             currentState = 'black'
             break;
+        case 'red':
+            currentState = 'red'
+            break;
+        case 'green':
+            currentState = 'green'
+            break;
+        case 'blue':
+            currentState = 'blue'
+            break;
         default:
             currentState = 'black';
     }
@@ -24,7 +32,14 @@ function changeState(state) {
 let changeGridColor = (e) => {
     if (currentState == 'erase'){
         e.target.style.backgroundColor = '#FFFFFF';
-    }else{
+    }else if(currentState == 'red'){
+        e.target.style.backgroundColor = 'red';
+    }else if(currentState == 'green'){
+        e.target.style.backgroundColor = 'green';
+    }else if(currentState == 'blue'){
+        e.target.style.backgroundColor = 'blue';
+    }
+    else{
         e.target.style.backgroundColor = 'black';
     }
 };
@@ -37,7 +52,7 @@ function addGrid(num){
         for (let col = 0; col < num; col++){
             const box = document.createElement('div');
             box.classList.add('box');
-            box.addEventListener('mouseover', changeGridColor)
+            box.addEventListener('mouseover', changeGridColor);
             grid.appendChild(box);
         }   
     }   
@@ -67,5 +82,6 @@ clear.addEventListener('click', () => {
     addGrid(gridAmount);
 });
 
-eraseBtn.addEventListener('click', () => changeState('erase'));
-blackBtn.addEventListener('click', () => changeState('black'));
+colorsBtn.forEach((button) => {
+    button.addEventListener('click', () => changeState(button.id));
+})
