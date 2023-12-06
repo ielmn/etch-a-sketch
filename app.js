@@ -3,9 +3,15 @@ const gridSquare = document.querySelector('.box');
 const askBtn = document.querySelector('#ask-numbers');
 const clear =  document.querySelector('#clear');
 const colorsBtn = document.querySelectorAll('.colorsBtn');
+const close = document.querySelector('.close');
+const slider = document.querySelector('#myRange');
+const output = document.querySelector('.result');
 
-let gridAmount = 6;
+let gridAmount = parseInt(slider.value);
 let currentState;
+
+output.textContent = `${slider.value} x ${slider.value}`;
+
 
 function changeState(state) {
     switch(state){
@@ -58,24 +64,20 @@ function addGrid(num){
     }   
 }
 
-function checkAmount(amount){
-    return (amount > 64 || amount < 1);
-}
-
 addGrid(gridAmount);
 
 // Event Listeners
-askBtn.addEventListener('click', () => {
-    let amount = 0;
-    while (checkAmount(amount)){
-        let ask = prompt('Enter grid amount', '6');
-        amount = parseInt(ask);
-    }
+slider.oninput = function() {
     sketchPad.textContent = "";
-    gridAmount = amount;
-    addGrid(amount);
-    console.log(currentState)
-});
+    output.textContent = `${this.value} x ${this.value}`;
+    let rangeVal = parseInt(this.value)
+    addGrid(rangeVal);
+    gridAmount = (rangeVal);
+}
+
+askBtn.addEventListener('click', () => document.querySelector('.bg-modal').style.display = 'flex')
+
+close.addEventListener('click',() => document.querySelector('.bg-modal').style.display = 'none' )
 
 clear.addEventListener('click', () => {
     sketchPad.textContent = "";
