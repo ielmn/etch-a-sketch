@@ -7,10 +7,18 @@
     font-family: 'Roboto', sans-serif;
 }
 
+html {
+    height: 100%;
+}
+
 body {
     background-color: #F5F5F5;
     display: block;
     color: #fff;
+    position: relative;
+    margin: 0;
+    min-height: 100%;
+    box-sizing: inherit;
 }
 
 .container {
@@ -85,14 +93,13 @@ h1 {
 footer {
     position: absolute;
     bottom: 0;
-    color: black;
+    color: rgb(103, 101, 101);
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding: 0.6em;
+    padding: 1em;
     font-size: 0.7rem;
-    color: white;
 }
 
 /* modal section */
@@ -138,4 +145,14 @@ footer {
 .modal-content h2{
     padding: 26px 0 10px;
     font-size: 1.4rem;
+}
+
+@media (max-width: 794px) {
+    .menu {
+        padding: 0.3em;
+        font-size: 2rem;
+    }
+    .menu-wrapper{
+    flex-direction: column;
+    }
 }
