@@ -9,15 +9,14 @@
 
 body {
     background-color: #F5F5F5;
-    display: flex;
-    justify-content: center;
-    height: 100dvh;
+    display: block;
     color: #fff;
 }
 
 .container {
+    width: 80%;
+    margin: 0 auto;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -36,6 +35,11 @@ button:hover {
     background-color: #F9FAF8;
 }
 
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
 .colors > .buttons{
     width: 2.5rem;
     border-radius: 50%;
@@ -43,7 +47,7 @@ button:hover {
 }
 
 .sketch-container{
-    margin-top: 8px;
+    margin-top: 13px;
     display: flex;
     flex-wrap: wrap;
     background-color: #fff;
@@ -53,14 +57,13 @@ button:hover {
 }
 
 .menu {
-    padding: 0.5em;
-    width: 100%;
+    padding: 0.8em;
     background-color:rgb(145,194,210, 0.8);
-    position: absolute;
-    top: 0;
+}
+
+.menu-wrapper{
     display: flex;
     justify-content: space-around;
-    margin-bottom: 1.4rem;
 }
 
 .grid {
@@ -70,16 +73,24 @@ button:hover {
 
 .grid > * {
     flex-basis: 100%;
-    /* border: 0.1px solid black; */
     background: #ffffff;
 }
-
-.toBlack {
-    background-color: black;
-  }
 
 h1 {
     font-size: 1.6rem;
     font-family: 'Gasoek One', sans-serif;
     -webkit-text-stroke: 1px black;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.6em;
+    font-size: 0.7rem;
+    color: white;
 }
