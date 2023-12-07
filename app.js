@@ -6,12 +6,12 @@ const colorsBtn = document.querySelectorAll('.colorsBtn');
 const close = document.querySelector('.close');
 const slider = document.querySelector('#myRange');
 const output = document.querySelector('.result');
+const rainbow = document.querySelector('#rainbow')
 
 let gridAmount = parseInt(slider.value);
 let currentState;
 
 output.textContent = `${slider.value} x ${slider.value}`;
-
 
 function changeState(state) {
     switch(state){
@@ -30,9 +30,21 @@ function changeState(state) {
         case 'blue':
             currentState = 'blue'
             break;
+        case 'rainbow':
+            currentState = 'rainbow'
+            break;
         default:
             currentState = 'black';
     }
+}
+
+function getRandomColor(){
+    let maxVal = 0xFFFFFF; 
+    let randomNumber = Math.random() * maxVal; 
+    randomNumber = Math.floor(randomNumber);
+    randomNumber = randomNumber.toString(16);
+    let randColor = randomNumber.padStart(6, 0);   
+    return `#${randColor.toUpperCase()}`
 }
 
 let changeGridColor = (e) => {
@@ -44,8 +56,9 @@ let changeGridColor = (e) => {
         e.target.style.backgroundColor = 'green';
     }else if(currentState == 'blue'){
         e.target.style.backgroundColor = 'blue';
-    }
-    else{
+    }else if(currentState == 'rainbow'){
+        e.target.style.backgroundColor = getRandomColor();
+    }else{
         e.target.style.backgroundColor = 'black';
     }
 };
