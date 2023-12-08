@@ -10,6 +10,7 @@ const rainbow = document.querySelector('#rainbow')
 
 let gridAmount = parseInt(slider.value);
 let currentState;
+let colorPick;
 
 output.textContent = `${slider.value} x ${slider.value}`;
 
@@ -47,19 +48,35 @@ function getRandomColor(){
     return `#${randColor.toUpperCase()}`
 }
 
+function updateOpacity(e){
+    if (e.target.style.opacity <= 1) {
+        e.target.style.opacity = +e.target.style.opacity + 0.1;
+      }
+}
+
 let changeGridColor = (e) => {
     if (currentState == 'erase'){
-        e.target.style.backgroundColor = '#FFFFFF';
+        e.target.style.opacity = 0;
     }else if(currentState == 'red'){
-        e.target.style.backgroundColor = 'red';
+        colorPick = 'red'
+        e.target.style.backgroundColor = colorPick;
+        updateOpacity(e);
     }else if(currentState == 'green'){
-        e.target.style.backgroundColor = 'green';
+        colorPick = 'green';
+        e.target.style.backgroundColor = colorPick;
+        updateOpacity(e);
     }else if(currentState == 'blue'){
-        e.target.style.backgroundColor = 'blue';
+        colorPick = 'blue';
+        e.target.style.backgroundColor = colorPick;
+        updateOpacity(e);
     }else if(currentState == 'rainbow'){
-        e.target.style.backgroundColor = getRandomColor();
+        colorPick = getRandomColor();
+        e.target.style.backgroundColor = colorPick;
+        updateOpacity(e);
     }else{
-        e.target.style.backgroundColor = 'black';
+        colorPick = 'black';
+        e.target.style.backgroundColor = colorPick;
+        updateOpacity(e);
     }
 };
 

@@ -84,6 +84,10 @@ a{
     background: #ffffff;
 }
 
+.box {
+    opacity:0;
+}
+
 h1 {
     font-size: 1.6rem;
     font-family: 'Gasoek One', sans-serif;
