@@ -48,7 +48,7 @@ function getRandomColor(){
     return `#${randColor.toUpperCase()}`
 }
 
-function updateOpacity(e){
+let updateOpacity = (e) => {
     if (e.target.style.opacity <= 1) {
         e.target.style.opacity = +e.target.style.opacity + 0.1;
       }
